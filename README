@@ -1,0 +1,5 @@
+Bruce Zhao
+
+Environment: MacOS Sierra, XCode 9.2, Shader V150
+
+In order to run and compile, the project can be opened with the AG3D2.xcodeproj file located in the same folder as this README. After opening the project, it can be compiled and ran as usual with XCode.
