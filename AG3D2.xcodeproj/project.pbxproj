@@ -16,7 +16,7 @@
 		CF4871FF20339CB400364378 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF4871F620339CB300364378 /* main.cpp */; };
 		CF48720020339CB400364378 /* InitShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF4871FA20339CB300364378 /* InitShader.cpp */; };
 		CF48720120339CB400364378 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF4871FC20339CB300364378 /* Camera.cpp */; };
-		CFDEFA00205B0D2B00B0A104 /* Particles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFDEF9FE205B0D2B00B0A104 /* Particles.cpp */; };
+		CFDEFA00205B0D2B00B0A104 /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFDEF9FE205B0D2B00B0A104 /* Particle.cpp */; };
 		CFF4AEC12053126900A5439D /* SkyBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFF4AEBF2053126900A5439D /* SkyBox.cpp */; };
 /* End PBXBuildFile section */
 
@@ -55,8 +55,8 @@
 		CF4871FC20339CB300364378 /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
 		CF49E84920586D03000549B5 /* Earth.ppm */ = {isa = PBXFileReference; lastKnownFileType = text; name = Earth.ppm; path = Build/Products/Debug/Earth.ppm; sourceTree = SOURCE_ROOT; };
 		CF86117520589A7A00E2AFEA /* Planet.ppm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Planet.ppm; path = Build/Products/Debug/Planet.ppm; sourceTree = SOURCE_ROOT; };
-		CFDEF9FE205B0D2B00B0A104 /* Particles.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Particles.cpp; sourceTree = "<group>"; };
-		CFDEF9FF205B0D2B00B0A104 /* Particles.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Particles.hpp; sourceTree = "<group>"; };
+		CFDEF9FE205B0D2B00B0A104 /* Particle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Particle.cpp; sourceTree = "<group>"; };
+		CFDEF9FF205B0D2B00B0A104 /* Particle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Particle.hpp; sourceTree = "<group>"; };
 		CFF4AEBF2053126900A5439D /* SkyBox.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SkyBox.cpp; sourceTree = "<group>"; };
 		CFF4AEC02053126900A5439D /* SkyBox.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SkyBox.hpp; sourceTree = "<group>"; };
 		CFF4AEC62053173B00A5439D /* fshaderFragCube_v150.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fshaderFragCube_v150.glsl; path = Build/Products/Debug/fshaderFragCube_v150.glsl; sourceTree = SOURCE_ROOT; };
@@ -122,8 +122,8 @@
 				CF4871F920339CB300364378 /* Light.h */,
 				CF4871F620339CB300364378 /* main.cpp */,
 				CF139D19203F712E008A10C0 /* Sphere.cpp */,
-				CFDEF9FE205B0D2B00B0A104 /* Particles.cpp */,
-				CFDEF9FF205B0D2B00B0A104 /* Particles.hpp */,
+				CFDEF9FE205B0D2B00B0A104 /* Particle.cpp */,
+				CFDEF9FF205B0D2B00B0A104 /* Particle.hpp */,
 				CF139D1A203F712E008A10C0 /* Sphere.hpp */,
 				CF0004E7204B501900C9F5EB /* Plane.cpp */,
 				CF0004E8204B501900C9F5EB /* Plane.hpp */,
@@ -247,7 +247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFDEFA00205B0D2B00B0A104 /* Particles.cpp in Sources */,
+				CFDEFA00205B0D2B00B0A104 /* Particle.cpp in Sources */,
 				CF0004DC2048DEA300C9F5EB /* Cube.cpp in Sources */,
 				CF0004E9204B501900C9F5EB /* Plane.cpp in Sources */,
 				CF4871FE20339CB400364378 /* Drawable.cpp in Sources */,

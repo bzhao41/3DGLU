@@ -121,15 +121,7 @@ void SkyBox::draw(Camera* cam, vector<Light*> lights){
     vmLoc = glGetUniformLocation(program, "view_matrix");
     pmLoc = glGetUniformLocation(program, "proj_matrix");
 
-
-//    vec4 eye = vec4(0,0,2,1);
-//    vec4 at = vec4(0, 0, 0, 1);
-//    vec4 up = vec4(0, 1, 0, 1);
-//    mat4 model_view = LookAt(vec4(0, 0, 0, 1), normalize(eye + at), up);
-//    glUniformMatrix4fv(vmLoc, 1, GL_TRUE, cam->getView());
-//    glUniformMatrix4fv(pmLoc, 1, GL_TRUE, cam->getProjection());
     glUniformMatrix4fv(vmLoc, 1, GL_TRUE, cam->getView());
-    //glUniformMatrix4fv(pmLoc, 1, GL_TRUE, Perspective(45.0f, (float)512 / (float)512, 0.1f, 100.0f));
     glUniformMatrix4fv(pmLoc, 1, GL_TRUE, cam->getProjection());
     
 
@@ -146,7 +138,6 @@ void SkyBox::draw(Camera* cam, vector<Light*> lights){
     glDepthMask(GL_TRUE);
     
 }
-
 void SkyBox::setMaterial(vec4 a, vec4 d, vec4 s, float sh) {
     diffuse = d;
     specular = s;

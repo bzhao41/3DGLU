@@ -7,7 +7,7 @@ Camera::Camera(int width, int height) {
     yaw = 0.1;
     
     GLfloat fov = 65;
-    GLfloat nearp = 0.1;
+    GLfloat nearp = 1;
     GLfloat farp = 100.0;
     projection_matrix = Perspective(fov, GLfloat(width) / height, nearp, farp);
     

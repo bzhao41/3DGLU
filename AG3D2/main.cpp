@@ -46,15 +46,23 @@ int far = 100;
 
 
 //particles
-//struct particle{
-//    vec4 color;
-//    vec4 position;
-//    vec4 velocity;
-//    float mass;
-//};
+struct Particle{
+    vec4 color;
+    vec4 position;
+    vec4 velocity;
+    float size, angle, weight;
+    float life;
+    
+    float cameradistance;
+    
+    bool operator<(const Particle& that) const {
+        // Sort in reverse order : far particles drawn first.
+        return this->cameradistance > that.cameradistance;
+    }
+};
 //
-//const int numParticles = 1000;
-//particle particles[numParticles];
+const int numParticles = 1000;
+Particle particles[numParticles];
 //vec4 particlePoints[numParticles];
 //vec4 particleColors[numParticles];
 //

@@ -29,10 +29,11 @@ out vec4 color;
 void main(){
     vec4 color1 = vec4(0,0,0,0);
     vec4 color2 = vec4(0,0,0,0);
-    vec4 t = texture(textureID, vTexture);
+    vec4 t = vec4(0, 0, 0, 0);
     
     //sun
     if (enabled1 == 1) {
+        t = texture(textureID, vTexture);
         vec3 pos = (view_matrix * model_matrix * vPosition).xyz;
         vec3 lightPosInCam = (view_matrix * lightPos).xyz;
         
@@ -57,6 +58,7 @@ void main(){
             specular = vec4(0, 0, 0, 1);
         }
         float intensity = max(lightPos.y/(length(L) * length(L)), 0);
+        t = t * intensity;
         color1 = intensity*(ambient + diffuse + specular);
 
         color1.a = 1.0;
@@ -64,6 +66,7 @@ void main(){
     
     //flashlight
     if (enabled2 == 1) {
+        t = texture(textureID, vTexture);
         vec3 pos = (view_matrix * model_matrix * vPosition).xyz;
         vec3 lightPosInCam = (view_matrix * lightPos2).xyz;
         
@@ -104,8 +107,8 @@ void main(){
         
     }
     
-    //color = color1 + color2;
-    color = t;
+    color = t + color1 + color2;
+    //color = t;
     color.a = 1.0;
     gl_Position = proj_matrix*view_matrix*model_matrix*vPosition;
     
