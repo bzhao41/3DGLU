@@ -1,8 +1,3 @@
-//
-// A GLSL "Hello World"
-// Display a blue square
-//
-
 #include "Angel.h"  //includes gl.h, glut.h and other stuff...
 #include "Camera.h"  //for camera objects (for use in future assignments)
 #include "Light.h"    //for lights (for use in future assignments)
@@ -10,6 +5,7 @@
 #include "Plane.hpp"
 #include "Cube.h"
 #include "SkyBox.hpp"
+#include "Particle.hpp"
 
 //Forward declarations
 void init(void);
@@ -30,6 +26,7 @@ Camera* skyCam;
 Light* sun;
 Light* flashlight;
 SkyBox* sky;
+Particle* particles;
 
 vector<Light*> lights;
 vector<Drawable*>drawables;
@@ -43,38 +40,6 @@ float pi = 3.14159265358979323846;
 float fov = 65.0;
 int near = 1;
 int far = 100;
-
-
-//particles
-struct Particle{
-    vec4 color;
-    vec4 position;
-    vec4 velocity;
-    float size, angle, weight;
-    float life;
-    
-    float cameradistance;
-    
-    bool operator<(const Particle& that) const {
-        // Sort in reverse order : far particles drawn first.
-        return this->cameradistance > that.cameradistance;
-    }
-};
-//
-const int numParticles = 1000;
-Particle particles[numParticles];
-//vec4 particlePoints[numParticles];
-//vec4 particleColors[numParticles];
-//
-//void initializeParticles();
-//void updateParticles();
-//void drawParticles();
-//float applyForces(int, int);
-//void testCollision(int);
-//void collision(int n);
-//float forces(int i, int j);
-
-//end
 
 //----------------------------------------------------------------------------
 
@@ -143,30 +108,34 @@ void init()
     mCube = new Cube(vec3(-.75, 0, 0));
     mCube->setMaterial(vec4(1.0, 0.2, 0.2, 1.0), vec4(1.0, 1.0, 1.0, 1.0), vec4(1.0, 1.0, 1.0, 1.0), 50.0f);
     
-    drawables.push_back(plane);
-    drawables.push_back(mCube);
-    drawables.push_back(mSphere);
-    
+//    drawables.push_back(plane);
+//    drawables.push_back(mCube);
+//    drawables.push_back(mSphere);
+
+    particles = new Particle();
+    drawables.push_back(particles);
     glutTimerFunc(50, rotateSun, 0);
     
     
 }
 //rotates the sun by 1 degree
 void rotateSun(int x) {
-    int t = 1;
-    vec4 currentPos = sun->getPosition();
-    sun->incrementTheta(t);
-    float s = sin(t * pi/180);
-    float c = cos(t * pi/180);
-    float xp = currentPos.x * c - currentPos.y * s;
-    float yp = currentPos.y * c + currentPos.x * s;
-    sun->setPosition(vec4(xp, yp, currentPos.z, currentPos.w));
-    if (sun->getTheta() > 130 && sun->getTheta() < 240 ) {
-        sun->turnOff();
-    } else {
-        sun->turnOn();
-    }
-    glutPostRedisplay();
+//
+//    int t = 1;
+//    vec4 currentPos = sun->getPosition();
+//    sun->incrementTheta(t);
+//    float s = sin(t * pi/180);
+//    float c = cos(t * pi/180);
+//    float xp = currentPos.x * c - currentPos.y * s;
+//    float yp = currentPos.y * c + currentPos.x * s;
+//    sun->setPosition(vec4(xp, yp, currentPos.z, currentPos.w));
+//    if (sun->getTheta() > 130 && sun->getTheta() < 240 ) {
+//        sun->turnOff();
+//    } else {
+//        sun->turnOn();
+//    }
+//    glutPostRedisplay();
+    particles->idle(0);
     glutTimerFunc(50, rotateSun, 0);
 }
 
@@ -254,55 +223,4 @@ void arrowKeys(int key, int x, int y) {
         glutPostRedisplay();
     }
 }
-
-//void initializeParticles() {
-//    for (int i = 0; i < numParticles; i++) {
-//        particles[i].mass = 1.0;
-//        for (int j = 0; j < 3; j++) {
-//            particles[i].color[j] = (float) rand()/RAND_MAX;
-//            particles[i].position[j] = 2.0 * ((float) rand()/RAND_MAX) - 1.0;
-//            particles[i].velocity[j] =2.0 * ((float) rand()/RAND_MAX) - 1.0;
-//        }
-//        particles[i].color.w = 1.0;
-//        particles[i].position.w = 1.0;
-//        particles[i].velocity.w = 1.0;
-//    }
-//}
-//
-//float last_time, present_time;
-//void idle(){
-//    float dt;
-//    present_time = glutGet(GLUT_ELAPSED_TIME);
-//    dt = 0.001*(present_time-last_time);
-//    for(int i=0; i<numParticles;i++){
-//        for(int j=0;j<3;j++){
-//            particles[i].position[j]+= dt*particles[i].velocity[j];
-//            particles[i].velocity[j]+= dt*forces(i,j)/particles[i].mass;
-//        }
-//        collision(i);
-//    }
-//    last_time = present_time;
-//    glutPostRedisplay();
-//}
-//
-//float forces(int i, int j){
-//    if(j==1) //only affect y direction
-//        return -1;
-//    else
-//        return 0;
-//}
-//
-//float coef; //how strong it bounces back
-//void collision(int n){
-//    for(int i=0;i<3; i++){
-//        if(particles[n].position[i] >=1.0){
-//            particles[n].velocity[i] *= -coef;
-//            particles[n].position[i] = 1.0-coef*(particles[n].position[i]-1.0);
-//        }
-//        if(particles[n].position[i]<=-1.0){
-//            particles[n].velocity[i] *= -coef;
-//            particles[n].position[i] = -1.0-coef*(particles[n].position[i]+1.0);
-//        }
-//    }
-//}
 

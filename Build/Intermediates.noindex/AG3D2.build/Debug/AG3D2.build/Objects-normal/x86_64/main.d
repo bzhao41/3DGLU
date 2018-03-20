@@ -9,4 +9,5 @@ dependencies: /Users/brucezhao/Documents/AG3D2/AG3D2/main.cpp \
   /Users/brucezhao/Documents/AG3D2/AG3D2/Drawable.h \
   /Users/brucezhao/Documents/AG3D2/AG3D2/Plane.hpp \
   /Users/brucezhao/Documents/AG3D2/AG3D2/Cube.h \
-  /Users/brucezhao/Documents/AG3D2/AG3D2/SkyBox.hpp
+  /Users/brucezhao/Documents/AG3D2/AG3D2/SkyBox.hpp \
+  /Users/brucezhao/Documents/AG3D2/AG3D2/Particle.hpp
