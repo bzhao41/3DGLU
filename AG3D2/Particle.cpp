@@ -14,10 +14,16 @@ Particle::Particle() {
 
 void Particle::initializeParticles() {
     for (int i = 0; i < numParticles; i++) {
+        
         particles[i].mass = 1.0;
+        float theta = 360 * ((float) rand()/RAND_MAX );
+        particles[i].position[0] = (0.5 + ((float) rand()/RAND_MAX )/2) * cos(theta * DegreesToRadians);
+        particles[i].position[1] = (0.5 + ((float) rand()/RAND_MAX )/2) * sin(theta * DegreesToRadians);
+//        particles[i].position[2] = 2 * ((float) rand()/RAND_MAX) - 1.0;
+        particles[i].position[2] = 0.0;
+
         for (int j = 0; j < 3; j++) {
             particles[i].color[j] = (float) rand()/RAND_MAX;
-            particles[i].position[j] = 2.0 * ((float) rand()/RAND_MAX) - 1.0;
             particles[i].velocity[j] =2.0 * ((float) rand()/RAND_MAX) - 1.0;
         }
         particles[i].color.w = 1.0;
